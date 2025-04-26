@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Epilogue", sans-serif, Arial, Helvetica;
+}
+
+.section {
+  @apply px-10 lg:px-40 py-20;
+}
+
+.title {
+  @apply text-5xl lg:text-7xl font-bold;
+}
+
+.sub-title {
+  @apply font-bold text-gray-800 text-4xl text-center mb-12 mt-24;
+}
+
+.header {
+  @apply py-4 flex justify-between items-center w-full fixed top-0 bg-white;
+
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.095);
+}
+
+.misi {
+  @apply w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 border-2 border-[#f9d57f] rounded-2xl lg:rounded-full p-2;
+}
+
+.member-container {
+  @apply flex flex-wrap justify-center gap-8 lg:gap-20;
+}
+
+.black-background {
+  @apply w-screen h-screen fixed top-0 left-0 bg-black opacity-75;
+}
+
+.menu-open {
+  @apply w-2/3 fixed z-100 bg-white rounded-xl p-8 flex flex-col gap-6;
+}
+
+/* UTILITY */
+
+.bg-orange {
+  background-color: #ffaa2b;
+}

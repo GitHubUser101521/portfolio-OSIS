@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { groupStagger } from '../utils/gsapAnimations'
 
 function VisiMisi() {
     const misi = [
@@ -8,6 +10,12 @@ function VisiMisi() {
         "Mengembangkan Kreativitas dan Keterampilan Siswa sehingga menjadi Jembatan bagi Siswa untuk Berprestasi dan Berkarya",
         "Melanjutkan serta mengembangkan program-program yang ada pada masa kepengurusan OSIS sebelumnya menjadi lebih baik lagi"
     ]
+
+    useEffect(() => {
+        const misi = document.querySelectorAll('.misi')
+
+        groupStagger(misi, 0.4)
+    }, [])
 
     return (
         <div id="tentang" className="section">
@@ -25,11 +33,11 @@ function VisiMisi() {
             {
                 misi.map((m, index) => (
                     <div className="misi" key={index}>
-                        <div className="bg-orange w-12 h-12 rounded-full flex justify-center items-center">
+                        <div className="bg-orange w-8 md:w-12 aspect-square rounded-full flex justify-center items-center">
                             <span className="text-white font-bold">{ index + 1 }</span>
                         </div>
 
-                        <p className="break-words lg:w-9/10 text-center lg:text-left">{ m }</p>
+                        <p className="break-words md:w-9/10 text-center md:text-left">{ m }</p>
                     </div>
                 ))
             }

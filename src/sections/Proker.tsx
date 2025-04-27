@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { animateScrollTrigger } from "../utils/gsapAnimations"
 
 function Proker() {
     const proker = [
@@ -38,6 +40,15 @@ function Proker() {
             "description": "Sebagai bentuk apresiasi terhadap prestasi akademik maupun non-akademik siswa, memotivasi siswa lain untuk berprestasi."
         }
     ]
+
+    useEffect(() => {
+        const proker = document.querySelectorAll('.proker')
+
+        proker.forEach(p => {
+            animateScrollTrigger(p, 'up')
+        })
+    }, [])
+
     return (
         <div id="proker" className="section">
             <hr className="border-t-2 border-gray-600" />
@@ -47,7 +58,7 @@ function Proker() {
             <div className="grid grid-cols-2 lg:grid-cols-4 lg:px-20 gap-8 lg:gap-20 mt-30">
             {
                 proker.map((p, index) => (
-                    <div className="flex flex-col gap-12" key={index}>
+                    <div className="proker" key={index}>
                         <div>
                             <img 
                                 src={`0${index}.png`} 

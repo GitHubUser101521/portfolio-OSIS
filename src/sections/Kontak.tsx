@@ -1,5 +1,14 @@
+import { useEffect } from "react"
+import { groupStagger } from "../utils/gsapAnimations"
 
 function Kontak() {
+
+    useEffect(() => {
+        const kontak = document.querySelectorAll('.kontak')
+
+        groupStagger(kontak, 0.2)
+    }, [])
+
     return (
         <div id="kontak" className='section h-screen'>
             <hr className="border-t-2 border-gray-600" />
@@ -16,7 +25,7 @@ function Kontak() {
 
                 <div className="flex flex-col gap-6">
                     {/* Email */}
-                    <div className="flex gap-4 items-center">
+                    <div className="kontak">
                         <div>
                             <img src="/email.png" className="w-12 aspect-square"/>
                         </div>
@@ -28,7 +37,7 @@ function Kontak() {
                     </div>
 
                     {/* Website */}
-                    <div className="flex gap-4 items-center">
+                    <div className="kontak">
                         <div>
                             <img src="/website.png" className="w-12 aspect-square"/>
                         </div>
@@ -40,7 +49,7 @@ function Kontak() {
                     </div>
 
                     {/* Instagram */}
-                    <div className="flex gap-4 items-center">
+                    <div className="kontak">
                         <div>
                             <img src="/instagram.png" className="w-12 aspect-square"/>
                         </div>
@@ -52,7 +61,7 @@ function Kontak() {
                     </div>
 
                     {/* Address */}
-                    <div className="flex gap-4 items-center">
+                    <div className="kontak">
                         <div>
                             <img src="/address.png" className="w-12 aspect-square"/>
                         </div>

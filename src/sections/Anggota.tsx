@@ -1,3 +1,6 @@
+import { useEffect } from "react"
+import { groupStagger } from "../utils/gsapAnimations"
+
 type MemberCardType = {
     name: string,
     position: string
@@ -7,7 +10,7 @@ function MemberCard({ name, position }: MemberCardType) {
     const formattedName = name.toLowerCase().split(' ').join('-')
 
     return (
-        <div className="w-1/3 lg:max-w-1/5 flex flex-col gap-8">
+        <div className="member-card">
             <div>
                 <img src={`/anggota/${formattedName}.png`} className="w-full aspect-square border-4 border-[#122a4f] rounded-2xl"/>
             </div>
@@ -103,6 +106,12 @@ function Anggota() {
             position: 'Rohani'
         }
     ]
+
+    useEffect(() => {
+        const memberCard = document.querySelectorAll('.member-card')
+
+        groupStagger(memberCard, 0.2)
+    })
     return (
         <div id="anggota" className='section'>
             <hr className="border-t-2 border-gray-600" />

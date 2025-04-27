@@ -1,6 +1,8 @@
+
 type MenuPopupType = {
-    setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
 }
+
 function MenuPopup({ setMenuOpen }: MenuPopupType) {
     return (
         <div className="flex justify-center items-center h-screen">

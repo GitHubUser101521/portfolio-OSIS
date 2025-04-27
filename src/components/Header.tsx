@@ -1,8 +1,18 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MenuPopup from "./MenuPopup"
+import { animateRotation } from "../utils/gsapAnimations"
 
 function Header() {
     const [ menuOpen, setMenuOpen ] = useState(false)
+    const menuImgRef = useRef(null)
+
+    useEffect(() => {
+        if (menuOpen) {
+            animateRotation(menuImgRef.current, 45)
+        } else {
+            animateRotation(menuImgRef.current, 360)
+        }
+    }, [menuOpen])
 
     return (
         <>
@@ -24,14 +34,18 @@ function Header() {
 
                 <div 
                     className="md:hidden cursor-pointer"
-                    onClick={() => setMenuOpen(true)}
+                    onClick={() => setMenuOpen(!menuOpen)}
                 >
-                    <img src="/menu.png" alt="Menu" />
+                    <img 
+                        src="/menu.png" 
+                        alt="Menu" 
+                        ref={menuImgRef} 
+                    />
                 </div>
             </div>
 
             {
-                menuOpen && <MenuPopup setMenuOpen={setMenuOpen}/>
+                menuOpen && <MenuPopup setMenuOpen={setMenuOpen} />
             }
         </>
     )
